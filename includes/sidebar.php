@@ -1,6 +1,8 @@
+<?php include "header.php"; ?>
+
 <section>
     <div class="row">
-        <div class="col-2 bg-dark vh-100">
+        <div class="col bg-dark" style="height: 87vh;">
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 alig-items-center mt-4 ms-4">
                 <li class="nav-item">
                     <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
@@ -10,7 +12,8 @@
                 </li>
                 <hr class="clearfix text-light">
                 <li class="nav-item">
-                    <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
+                    <a href="../crm/All_customers.php"
+                        class="nav-link align-middle px-0 text-decoration-none text-light">
                         <i class="bi bi-people text-light"></i>
                         Customers
                     </a>

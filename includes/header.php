@@ -12,7 +12,7 @@
     <title>CRM System</title>
 </head>
 
-<body>
+<body class="bg-secondary bg-opacity-25">
 </body>
 
 </html>
