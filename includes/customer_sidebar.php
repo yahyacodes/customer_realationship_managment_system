@@ -12,24 +12,16 @@
                 </li>
                 <hr class="clearfix text-light">
                 <li class="nav-item">
-                    <a href="../crm/All_customers.php"
-                        class="nav-link align-middle px-0 text-decoration-none text-light">
-                        <i class="bi bi-people text-light"></i>
-                        Customers
+                    <a href="Payments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
+                        <i class="bi bi-wallet2 text-light"></i>
+                        Payments
                     </a>
                 </li>
                 <hr class="clearfix text-light">
                 <li class="nav-item">
                     <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
-                        <i class="bi bi-people text-light"></i>
-                        Users
-                    </a>
-                </li>
-                <hr class="clearfix text-light">
-                <li class="nav-item">
-                    <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
-                        <i class="bi bi-person text-light"></i>
-                        Profile
+                        <i class="bi bi-chat-left-text text-light"></i>
+                        Comments
                     </a>
                 </li>
                 <hr class="clearfix text-light">

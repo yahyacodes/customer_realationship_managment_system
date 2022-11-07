@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container">
-        <a href="#" class="navbar-brand text-light">CRM System</a>
+        <a href="../crm/All_customers.php" class="navbar-brand text-light">CRM System</a>
         <button class="navbar-toggler bg-light" type="button" id="btn-toggle">
             <span class="navbar-toggler-icon bg-light"></span>
         </button>
