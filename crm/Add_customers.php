@@ -13,12 +13,12 @@ if(isset($_POST['add_customer'])) {
     $customer_gender = $_POST['customer_gender'];
     $customer_plot_name = $_POST['customer_plot_name'];
     $customer_house_number = $_POST['customer_house_number'];
-    $date_recorded = (date('d-m-y'));
+    $date_recorded = date('d-m-y');
 
-    $query = "INSERT INTO customers(customer_name, customer_email, customer_phone_number, cutomer_id_number,
-     customer_gender, customer_plot_number, customer_house_number, date_recorded) ";
-    $query .= "VALUES({$customer_name}, {$customer_email}, {$customer_phone_number}, {$customer_id_number}, {$customer_gender}, 
-    {$customer_plot_name}, {$customer_house_number}, {$date_recorded}) ";
+    $query = "INSERT INTO customers(customer_name, customer_email, customer_phone_number, customer_id_number,
+     customer_gender, customer_plot_name, customer_house_number, date_recorded) ";
+    $query .= "VALUES('{$customer_name}', '{$customer_email}', '{$customer_phone_number}', '{$customer_id_number}', '{$customer_gender}', 
+    '{$customer_plot_name}', '{$customer_house_number}', now() ) ";
 
     $add_customer_query = mysqli_query($connection, $query);
 

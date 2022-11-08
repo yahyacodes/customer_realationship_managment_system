@@ -63,6 +63,7 @@
             $select_customers = mysqli_query($connection, $query);
 
             while($row = mysqli_fetch_assoc($select_customers)) {
+            $customer_id = $row['customer_id'];
             $customer_name = $row['customer_name'];
             $customer_phone_number = $row['customer_phone_number'];
             $customer_email = $row['customer_email'];
@@ -70,32 +71,41 @@
             $customer_house_number = $row['customer_house_number'];
             $date_recorded = $row['date_recorded'];
 
-            echo "<tr>";
-            echo "<td></td>";
-            echo "<td><a href='Customer_overview.php' class='text-decoration-none text-primary'>$customer_name</a></td>";
-            echo "<td>$customer_phone_number</td>";
-            echo "<td>$customer_email</td>";
-            echo "<td>$customer_plot_name</td>";
-            echo "<td>$customer_house_number</td>";
-            echo "<td>$date_recorded</td>";
-            echo "</tr>";
-        }
+                echo "<tr>";
+                echo "<td><input type='checkbox' name='check_user' id=''></td>";
+                echo "<td><a href='Customer_overview.php?source=customer_overview&p_id={$customer_id}'
+                class='text-decoration-none text-primary fw-bold'>$customer_name</a></td>";
+                echo "<td>$customer_phone_number</td>";
+                echo "<td>$customer_email</td>";
+                echo "<td>$customer_plot_name</td>";
+                echo "<td>$customer_house_number</td>";
+                echo "<td>$date_recorded</td>";
+                echo "</tr>";
+                }
+
+                //p_id = key of the array of the $_GET super global for the ID's
 
 
-
-
-            ?>
-                <tr>
-                    <th><input type="checkbox" name="" id=""></th>
-                    <td>Mohammed Aden</td>
-                    <td>0722908998</td>
-                    <td>mohammed@aden.com</td>
-                    <td>Alnaima Towers</td>
-                    <td>B4</td>
-                    <td>2022-11-07</td>
-                </tr>
+                ?>
             </tbody>
         </table>
+
+        <?php
+        
+        if(isset($_GET['source'])) {
+            $source = $_GET['source'];
+        } else {
+            $source = '';
+        }
+
+        switch($source) {
+            case 'customer_overview';
+            include "Customer_overview.php";
+            break;
+            
+        }
+
+        ?>
     </div>
 </div>
 

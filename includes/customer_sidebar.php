@@ -10,9 +10,17 @@
                         Dashboard
                     </a>
                 </li>
+                <!-- <hr class="clearfix text-light">
+                <li class="nav-item">
+                    <a href="../crm/Customer_overview.php"
+                        class="nav-link align-middle px-0 text-decoration-none text-light">
+                        <i class="bi bi-info-circle text-light"></i>
+                        Overview
+                    </a>
+                </li> -->
                 <hr class="clearfix text-light">
                 <li class="nav-item">
-                    <a href="Payments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
+                    <a href="../crm/Payments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
                         <i class="bi bi-wallet2 text-light"></i>
                         Payments
                     </a>

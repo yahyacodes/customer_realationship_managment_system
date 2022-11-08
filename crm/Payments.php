@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-2">
-        <?php include "../includes/sidebar.php"?>
+        <?php include "../includes/customer_sidebar.php"?>
     </div>
 
     <div class="col bg-light rounded mt-2 mb-2 ms-4 mx-4">
