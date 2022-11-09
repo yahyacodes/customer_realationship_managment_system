@@ -9,6 +9,18 @@
     </div>
 
     <div class="col bg-light rounded mt-2 mb-2 ms-4 mx-4">
+        <div class="row mb-0">
+            <div class="col">
+                <p class="fw-bold fs-4">Overview</p>
+            </div>
+
+            <div class="col mt-2 d-flex flex-row-reverse">
+                <a href="Add_comment.php">
+                    <button class="btn btn-outline-primary">Add Comment</button>
+                </a>
+            </div>
+        </div>
+        <hr class="clearfix w-100">
         <div class="row">
             <div class="col-3">
                 <img src="../images/account_user_avator.png" alt=""
@@ -60,6 +72,27 @@
 
             </div>
         </div>
+
+        <table class="table table-striped table-bordered mt-5">
+            <thead>
+                <tr>
+                    <th>Amount</th>
+                    <th>Payment Method</th>
+                    <th>Status</th>
+                    <th>Maturity Date</th>
+                    <th>Recorded At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2000 ksh</td>
+                    <td>Cash</td>
+                    <td>Cleared</td>
+                    <td>2022-11-21</td>
+                    <td>2022-11-9</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 
