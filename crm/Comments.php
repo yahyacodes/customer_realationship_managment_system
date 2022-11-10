@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-2">
-        <?php include "../includes/customer_sidebar.php"?>
+        <?php include "../includes/sidebar.php"?>
     </div>
 
     <div class="col bg-light rounded mt-2 mb-2 ms-4 mx-4">
@@ -54,6 +54,34 @@
                 </tr>
             </thead>
             <tbody>
+
+                <?php
+
+    $query = "SELECT * FROM customer_comments LIMIT 10";
+
+    $select_comments = mysqli_query($connection, $query);
+
+    while($row = mysqli_fetch_assoc($select_comments)) {
+    $comment_id = $row['comment_id'];
+    $customer_name = $row['customer_name'];
+    $comment_subject = $row['comment_subject'];
+    $comment_content = $row['comment_content'];
+    $date_recorded = $row['date_recorded'];
+
+    echo "<tr>";
+    echo "<td><input type='checkbox' name='check_user' id=''></td>";
+    echo "<td><a href='Customer_overview.php?source=customer_overview&comment_id={$comment_id}'
+    class='text-decoration-none text-primary fw-bold'>$customer_name</a></td>";
+    echo "<td>$comment_subject</td>";
+    echo "<td>$comment_content</td>";
+    echo "<td>$date_recorded</td>";
+    echo "</tr>";
+    }
+
+    //p_id = key of the array of the $_GET super global for the ID's
+
+
+    ?>
                 <tr>
                     <td><input type="checkbox"></td>
                     <td>Yahya Ali</td>
@@ -63,6 +91,28 @@
                 </tr>
             </tbody>
         </table>
+
+        <?php
+        
+        if(isset($_GET['source'])) {
+            $source = $_GET['source'];
+        } else {
+            $source = '';
+        }
+
+        switch($source) {
+            case 'add_comment';
+            include "Add_comment.php";
+            break;
+
+            case 'customer_overview';
+            include "Customer_overview.php";
+            break;
+            
+        }
+
+        ?>
+
     </div>
 </div>
 

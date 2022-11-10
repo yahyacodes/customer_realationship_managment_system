@@ -53,6 +53,7 @@
                     <th>Customer Plot</th>
                     <th>Customer Houe</th>
                     <th>Recorded At</th>
+                    <th>Add Comment</th>
                 </tr>
             </thead>
             <tbody>
@@ -80,6 +81,7 @@
                 echo "<td>$customer_plot_name</td>";
                 echo "<td>$customer_house_number</td>";
                 echo "<td>$date_recorded</td>";
+                echo "<td><a href='Add_comment.php?source=add_comment&add_comment={$customer_id}' class='text-decoration-none'>Add comment</a></td>";
                 echo "</tr>";
                 }
 

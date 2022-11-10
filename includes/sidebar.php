@@ -20,6 +20,20 @@
                 </li>
                 <hr class="clearfix text-light">
                 <li class="nav-item">
+                    <a href="../crm/Comments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
+                        <i class="bi bi-chat-left-text text-light"></i>
+                        Comments
+                    </a>
+                </li>
+                <hr class="clearfix text-light">
+                <li class="nav-item">
+                    <a href="../crm/Payments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
+                        <i class="bi bi-wallet2 text-light"></i>
+                        Payments
+                    </a>
+                </li>
+                <hr class="clearfix text-light">
+                <li class="nav-item">
                     <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
                         <i class="bi bi-people text-light"></i>
                         Users

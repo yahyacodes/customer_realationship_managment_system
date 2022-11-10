@@ -10,19 +10,12 @@
                         Dashboard
                     </a>
                 </li>
-                <!-- <hr class="clearfix text-light">
-                <li class="nav-item">
-                    <a href="../crm/Customer_overview.php"
-                        class="nav-link align-middle px-0 text-decoration-none text-light">
-                        <i class="bi bi-info-circle text-light"></i>
-                        Overview
-                    </a>
-                </li> -->
                 <hr class="clearfix text-light">
                 <li class="nav-item">
-                    <a href="../crm/Payments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
-                        <i class="bi bi-wallet2 text-light"></i>
-                        Payments
+                    <a href="../crm/All_customers.php"
+                        class="nav-link align-middle px-0 text-decoration-none text-light">
+                        <i class="bi bi-people text-light"></i>
+                        Customers
                     </a>
                 </li>
                 <hr class="clearfix text-light">
@@ -30,6 +23,13 @@
                     <a href="../crm/Comments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
                         <i class="bi bi-chat-left-text text-light"></i>
                         Comments
+                    </a>
+                </li>
+                <hr class="clearfix text-light">
+                <li class="nav-item">
+                    <a href="../crm/Payments.php" class="nav-link align-middle px-0 text-decoration-none text-light">
+                        <i class="bi bi-wallet2 text-light"></i>
+                        Payments
                     </a>
                 </li>
                 <hr class="clearfix text-light">

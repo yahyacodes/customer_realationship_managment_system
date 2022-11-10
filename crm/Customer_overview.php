@@ -15,8 +15,8 @@
             </div>
 
             <div class="col mt-2 d-flex flex-row-reverse">
-                <a href="Add_comment.php">
-                    <button class="btn btn-outline-primary">Add Comment</button>
+                <a href="Make_payment.php">
+                    <button class="btn btn-outline-primary">Make Payment</button>
                 </a>
             </div>
         </div>
@@ -39,6 +39,7 @@
             confirmQuery($select_customer_overview);
             
             while($row = mysqli_fetch_assoc($select_customer_overview)) {
+                $customer_id = $row['customer_id'];
                 $customer_name = $row['customer_name'];
                 $customer_email = $row['customer_email'];
                 $customer_phone_number = $row['customer_phone_number'];
@@ -78,17 +79,43 @@
                 <tr>
                     <th>Amount</th>
                     <th>Payment Method</th>
-                    <th>Status</th>
-                    <th>Maturity Date</th>
+                    <!-- <th>Status</th> -->
+                    <!-- <th>Maturity Date</th> -->
                     <th>Recorded At</th>
                 </tr>
             </thead>
             <tbody>
+
+                <?php
+
+        $query = "SELECT * FROM payments ";
+
+        $select_customer_payment = mysqli_query($connection, $query);
+
+        while($row = mysqli_fetch_assoc($select_customer_payment)) {
+        $payment_id = $row['payment_id'];
+        $amount_paid = $row['amount_paid'];
+        $dollar_value = $row['dollar_value'];
+        $payment_ref = $row['payment_ref'];
+        $payment_method = $row['payment_method'];
+        $date_recorded = $row['date_recorded'];
+
+        echo "<tr>";
+        echo "<td>$amount_paid</td>";
+        echo "<td>$payment_method</td>";
+        echo "<td>$date_recorded</td>";
+        echo "</tr>";
+        }
+
+    //p_id = key of the array of the $_GET super global for the ID's
+
+
+    ?>
                 <tr>
                     <td>2000 ksh</td>
                     <td>Cash</td>
-                    <td>Cleared</td>
-                    <td>2022-11-21</td>
+                    <!-- <td>Cleared</td>
+                    <td>2022-11-21</td> -->
                     <td>2022-11-9</td>
                 </tr>
             </tbody>

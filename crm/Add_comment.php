@@ -21,14 +21,61 @@
         </div>
         <hr class="clearfix w-100">
 
+        <?php
+
+        if(isset($_GET['add_comment'])) {
+            $the_customer_id = $_GET['add_comment'];
+
+        $query = "SELECT * FROM customers WHERE customer_id = $the_customer_id ";
+
+        $select_customer_name = mysqli_query($connection, $query);
+
+        confirmQuery($select_customer_name);
+
+        while($row = mysqli_fetch_assoc($select_customer_name)) {
+        $customer_name = $row['customer_name'];
+        }
+    }
+    ?>
+
+
+
+        <?php
+
+
+
+        if(isset($_POST['add_comment'])) {
+            //$customer_name = $_POST['customer_name'];
+            $comment_subject = $_POST['comment_subject'];
+            $comment_content = $_POST['comment_content'];
+            $date_recorded = date('d-m-y');
+        
+            $query = "INSERT INTO customer_comments(customer_name, comment_subject, comment_content, date_recorded) ";
+            $query .= "VALUES('{$customer_name}', '{$comment_subject}', '{$comment_content}', now() ) ";
+        
+            $add_comment_query = mysqli_query($connection, $query);
+        
+            confirmQuery($add_comment_query);
+            
+            
+        }
+        
+        ?>
+
         <form action="" method="post" class="mt-5">
             <div class="form-group">
-                <label for="customer_name">Subject:</label>
+                <label for="customer_name">Name:</label>
+                <input type="text" name="customer_name" value="<?php echo $customer_name; ?>" class="form-control"
+                    disabled>
+            </div> <br>
+
+            <div class="form-group">
+                <label for="comment_subject">Subject:</label>
                 <input type="text" name="comment_subject" class="form-control">
             </div> <br>
 
             <div class="form-group">
-                <label for="customer_name">Add Comment:</label>
+                <label for="comment_content">Add Comment:</label>
                 <textarea name="comment_content" class="form-control" cols="30" rows="10"></textarea>
             </div> <br>
 

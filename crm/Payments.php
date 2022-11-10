@@ -8,72 +8,99 @@
     </div>
 
     <div class="col bg-light rounded mt-2 mb-2 ms-4 mx-4">
-        <p class="fw-bold mt-2 fs-4">Record Payment</p>
+        <div class="row mt-2">
+            <div class="col">
+                <h1 class=" fw-bold">All Customers</h1>
+            </div>
+            <div class="col d-flex flex-row-reverse">
+                <a href="Add_customers.php" class="text-decoration-none text-dark mx-2">
+                    <button class="btn btn-outline-primary">Add Customers</button>
+                </a>
+            </div>
+        </div>
         <hr class="clearfix w-100">
-        <form action="" method="post">
-            <div class="row">
-                <div class="col">
-                    <label for="amount" class="fw-bold">Amount Paid</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi bi-cash"></i></span>
-                        <input type="number" class="form-control" placeholder="Amount Paid" name="amount_paid">
-                    </div>
-                </div>
 
-                <div class="col">
-                    <label for="dollar" class="fw-bold">Dollar Value</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
-                        <input type="number" class="form-control" placeholder="Dollar Value" name="dollar_value">
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col">
+                show
+                <select name="select" id="">
+                    <option value="10">10</option>
+                    <option value="10">25</option>
+                    <option value="10">50</option>
+                    <option value="10">100</option>
+                </select>
+                entries
             </div>
 
-            <div class="row">
-                <div class="col">
-                    <label for="ref" class="fw-bold">Ref#, Cheque#, Mpesa#, Transaction#</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi bi-sliders"></i></span>
-                        <input type="number" class="form-control" name="ref">
-                    </div>
-                </div>
-
-                <div class="col">
-                    <label for="payment_method" class="fw-bold">Payment Method</label>
-                    <select name="payment_method" class="form-select">
-                        <option value="cash">Cash</option>
-                        <option value="mpesa">M-pesa</option>
-                        <option value="cheque">Cheque</option>
-                    </select>
+            <div class="col d-flex flex-row-reverse">
+                <div class="input-group mb-3 w-25">
+                    <span class="input-group-text" id="basic-addon1">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input type="search" class="form-control" placeholder="Search">
                 </div>
             </div>
+            <hr class="clearfix w-100">
+        </div>
 
-            <div class="row">
-                <div class="col">
-                    <label for="cheque" class="fw-bold">Cheque Status</label>
-                    <select name="cheque_status" class="form-select" disabled>
-                        <option value="cleared">Cleared</option>
-                        <option value="uncleared">Uncleared</option>
-                    </select>
-                </div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th><input type="checkbox" name="" id=""></th>
+                    <th>Customer Name</th>
+                    <th>Customer Phone</th>
+                    <th>Customer Email</th>
+                    <th>Customer Plot</th>
+                    <th>Customer Houe</th>
+                    <th>Recorded At</th>
+                    <th>Add Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
 
-                <div class="col">
-                    <label for="ref_status" class="fw-bold">Maturity Date</label>
-                    <div class="input-group mb-3">
-                        <span class="input-group-text"><i class="bi bi-calendar3"></i></span>
-                        <input type="number" class="form-control" name="maturity_date" disabled>
-                    </div>
-                </div>
+        $query = "SELECT * FROM payments ";
 
-            </div>
+        $select_customer_payment = mysqli_query($connection, $query);
 
-            <div class="row">
-                <div class="col d-flex flex-row-reverse">
-                    <button class="btn btn-primary" name="submit" disabled><i class="bi bi-check2"></i>Submit</button>
-                </div>
-            </div>
+        while($row = mysqli_fetch_assoc($select_customer_payment)) {
+        $payment_id = $row['payment_id'];
+        $amount_paid = $row['amount_paid'];
+        $dollar_value = $row['dollar_value'];
+        $payment_ref = $row['payment_ref'];
+        $payment_method = $row['payment_method'];
+        $date_recorded = $row['date_recorded'];
 
-        </form>
+        echo "<tr>";
+        echo "<td>$amount_paid</td>";
+        echo "<td>$payment_method</td>";
+        echo "<td>$date_recorded</td>";
+        echo "</tr>";
+        }
+
+        //p_id = key of the array of the $_GET super global for the ID's
+
+
+        ?>
+            </tbody>
+        </table>
+
+        <?php
+        
+        if(isset($_GET['source'])) {
+            $source = $_GET['source'];
+        } else {
+            $source = '';
+        }
+
+        switch($source) {
+            case 'customer_overview';
+            include "Customer_overview.php";
+            break;
+            
+        }
+
+        ?>
     </div>
 </div>
 
