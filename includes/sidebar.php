@@ -34,16 +34,9 @@
                 </li>
                 <hr class="clearfix text-light">
                 <li class="nav-item">
-                    <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
+                    <a href="../crm/Users.php" class="nav-link align-middle px-0 text-decoration-none text-light">
                         <i class="bi bi-people text-light"></i>
                         Users
-                    </a>
-                </li>
-                <hr class="clearfix text-light">
-                <li class="nav-item">
-                    <a href="#" class="nav-link align-middle px-0 text-decoration-none text-light">
-                        <i class="bi bi-person text-light"></i>
-                        Profile
                     </a>
                 </li>
                 <hr class="clearfix text-light">

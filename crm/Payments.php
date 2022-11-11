@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-2">
-        <?php include "../includes/customer_sidebar.php"?>
+        <?php include "../includes/sidebar.php"?>
     </div>
 
     <div class="col bg-light rounded mt-2 mb-2 ms-4 mx-4">
@@ -48,12 +48,11 @@
                 <tr>
                     <th><input type="checkbox" name="" id=""></th>
                     <th>Customer Name</th>
-                    <th>Customer Phone</th>
-                    <th>Customer Email</th>
+                    <th>Amount Paid</th>
+                    <th>Payment Method</th>
                     <th>Customer Plot</th>
                     <th>Customer Houe</th>
                     <th>Recorded At</th>
-                    <th>Add Comment</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,6 +64,7 @@
 
         while($row = mysqli_fetch_assoc($select_customer_payment)) {
         $payment_id = $row['payment_id'];
+        $customer_name = $row['customer_name'];
         $amount_paid = $row['amount_paid'];
         $dollar_value = $row['dollar_value'];
         $payment_ref = $row['payment_ref'];
@@ -72,8 +72,13 @@
         $date_recorded = $row['date_recorded'];
 
         echo "<tr>";
+        echo "<td><input type='checkbox' name='check_user' id=''></td>";
+        echo "<td><a href='Customer_overview.php?source=customer_overview&comment_id={$payment_id}'
+        class='text-decoration-none text-primary fw-bold'>$customer_name</a></td>";
         echo "<td>$amount_paid</td>";
         echo "<td>$payment_method</td>";
+        echo "<td></td>";
+        echo "<td></td>";
         echo "<td>$date_recorded</td>";
         echo "</tr>";
         }

@@ -10,11 +10,11 @@
     <div class="col bg-light rounded mt-2 mb-2 ms-4 mx-4">
         <div class="row mt-2">
             <div class="col">
-                <h1 class=" fw-bold">All Customers</h1>
+                <h1 class=" fw-bold">All Users</h1>
             </div>
             <div class="col d-flex flex-row-reverse">
-                <a href="Add_customers.php" class="text-decoration-none text-dark mx-2">
-                    <button class="btn btn-outline-primary">Add Customers</button>
+                <a href="Add_user.php" class="text-decoration-none text-dark mx-2">
+                    <button class="btn btn-outline-primary">Add Users</button>
                 </a>
             </div>
         </div>
@@ -47,42 +47,39 @@
             <thead>
                 <tr>
                     <th><input type="checkbox" name="" id=""></th>
-                    <th>Customer Name</th>
-                    <th>Customer Phone</th>
-                    <th>Customer Email</th>
-                    <th>Customer Plot</th>
-                    <th>Customer Houe</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Username</th>
+                    <th>User Email</th>
+                    <th>User role</th>
                     <th>Recorded At</th>
-                    <th>Add Comment</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
 
-            $query = "SELECT * FROM customers LIMIT 10";
+            $query = "SELECT * FROM users LIMIT 10";
 
-            $select_customers = mysqli_query($connection, $query);
+            $select_users = mysqli_query($connection, $query);
 
-            while($row = mysqli_fetch_assoc($select_customers)) {
-            $customer_id = $row['customer_id'];
-            $customer_name = $row['customer_name'];
-            $customer_phone_number = $row['customer_phone_number'];
-            $customer_email = $row['customer_email'];
-            $customer_plot_name = $row['customer_plot_name'];
-            $customer_house_number = $row['customer_house_number'];
+            while($row = mysqli_fetch_assoc($select_users)) {
+            $user_id = $row['user_id'];
+            $user_firstname = $row['user_firstname'];
+            $user_lastname = $row['user_lastname'];
+            $username = $row['username'];
+            $user_email = $row['user_email'];
+            $user_role = $row['user_role'];
             $date_recorded = $row['date_recorded'];
 
                 echo "<tr>";
                 echo "<td><input type='checkbox' name='check_user' id=''></td>";
-                echo "<td><a href='Customer_overview.php?source=customer_overview&p_id={$customer_id}'
-                class='text-decoration-none text-primary fw-bold'>$customer_name</a></td>";
-                echo "<td>+254$customer_phone_number</td>";
-                echo "<td>$customer_email</td>";
-                echo "<td>$customer_plot_name</td>";
-                echo "<td>$customer_house_number</td>";
+                echo "<td><a href='Profile.php?source=profile&p_id={$user_id}'
+                class='text-decoration-none text-primary fw-bold'>$username</a></td>";
+                echo "<td>$user_firstname</td>";
+                echo "<td>$user_lastname</td>";
+                echo "<td>$user_email</td>";
+                echo "<td>$user_role</td>";
                 echo "<td>$date_recorded</td>";
-                echo "<td><a href='Add_comment.php?source=add_comment&add_comment={$customer_id}' 
-                class='text-decoration-none'>Add comment</a></td>";
                 echo "</tr>";
                 }
 
@@ -102,8 +99,12 @@
         }
 
         switch($source) {
-            case 'customer_overview';
-            include "Customer_overview.php";
+            case 'edit_user';
+            include "Edit_user.php";
+            break;
+
+            case 'profile';
+            include "Profile.php";
             break;
             
         }
@@ -113,3 +114,11 @@
 </div>
 
 <?php include "../includes/footer.php"; ?>
+
+user_id
+user_firstname
+user_lastname
+username
+user_email
+user_password
+user_role
